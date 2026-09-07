@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource path="res://collectibles/Present/Present.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sound/44.1 General Library (Samples)/Popping_Bottle_High_03.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/Sprites/presents/Present-Closed.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sound/sfxr.me/pickupCoin.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Sound/mixkit.co/mixkit-select-click-1109.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/Sound/mixkit.co/mixkit-click-error-1110.wav" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+size = Vector2( 32, 32 )
+
+[node name="Present" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+_spriteHoverLimit = 4
+_spriteHoverSpeed = 0.2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="QuizCompleteTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="CorrectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -6.0
+
+[node name="WrongSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+
+[node name="CollectedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -6.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_onPlayerTouched"]

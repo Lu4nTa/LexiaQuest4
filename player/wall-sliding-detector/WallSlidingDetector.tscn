@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://player/wall-sliding-detector/wall-sliding-detector-shape.tres" type="Shape2D" id=1]
+[ext_resource path="res://player/wall-sliding-detector/WallSlidingDetector.gd" type="Script" id=2]
+
+[node name="WallSlidingDetector" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopLeft" type="Area2D" parent="."]
+position = Vector2( -7, -7 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft"]
+shape = ExtResource( 1 )
+
+[node name="TopRight" type="Area2D" parent="."]
+position = Vector2( 7, -7 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight"]
+shape = ExtResource( 1 )
+
+[node name="BottomLeft" type="Area2D" parent="."]
+position = Vector2( -7, 7 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft"]
+shape = ExtResource( 1 )
+
+[node name="BottomRight" type="Area2D" parent="."]
+position = Vector2( 7, 7 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight"]
+shape = ExtResource( 1 )
+
+[connection signal="body_entered" from="TopLeft" to="." method="_on_TopLeft_body_entered"]
+[connection signal="body_exited" from="TopLeft" to="." method="_on_TopLeft_body_exited"]
+[connection signal="body_entered" from="TopRight" to="." method="_on_TopRight_body_entered"]
+[connection signal="body_exited" from="TopRight" to="." method="_on_TopRight_body_exited"]
+[connection signal="body_entered" from="BottomLeft" to="." method="_on_BottomLeft_body_entered"]
+[connection signal="body_exited" from="BottomLeft" to="." method="_on_BottomLeft_body_exited"]
+[connection signal="body_entered" from="BottomRight" to="." method="_on_BottomRight_body_entered"]
+[connection signal="body_exited" from="BottomRight" to="." method="_on_BottomRight_body_exited"]

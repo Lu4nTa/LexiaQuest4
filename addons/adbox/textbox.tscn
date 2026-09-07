@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://addons/adbox/TextBox.gd" type="Script" id=2]
+
+[node name="TextBox" type="RichTextLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+scroll_active = false
+script = ExtResource( 2 )
