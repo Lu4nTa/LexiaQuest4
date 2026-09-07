@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/OpenDyslexic/OpenDyslexic-Regular.otf" id="1"]
+[ext_resource type="FontFile" path="res://assets/Fonts/OpenDyslexic/OpenDyslexic-Bold.otf" id="2"]
+
+[resource]
+default_font = ExtResource("1")
+default_font_size = 16
+default_font_outline_size = 1
+default_font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/bold_font = ExtResource("2")
+RichTextLabel/fonts/normal_font = ExtResource("1")
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/font_sizes/outline_size = 2
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)

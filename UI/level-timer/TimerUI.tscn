@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://UI/level-timer/TimerUI.gd" type="Script" id=1]
+[ext_resource path="res://timer/Timer-CountUp.gd" type="Script" id=2]
+
+[node name="TimerUI" type="PanelContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 35.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 53.0
+margin_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "0:00"
+align = 1
+valign = 1
+
+[node name="TimerCountUp" type="Node" parent="."]
+script = ExtResource( 2 )

@@ -1,0 +1,27 @@
+[gd_resource type="Theme" format=3 uid="uid://jd37g5qy61qk"]
+
+[ext_resource type="StyleBox" path="res://UI/Button/Button-Focus.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://d3mqv3vhoylte" path="res://assets/Fonts/OpenDyslexic/OpenDyslexic-Regular.otf" id="3"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[resource]
+Button/fonts/font = ExtResource("3")
+Button/styles/focus = ExtResource("2")
+RichTextLabel/colors/default_color = Color(1, 0.666667, 0, 1)
+RichTextLabel/fonts/normal_font = SubResource("1")

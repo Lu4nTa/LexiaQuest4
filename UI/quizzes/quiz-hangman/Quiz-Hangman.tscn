@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://UI/quizzes/Quiz-Styles.tres" type="Theme" id=2]
+[ext_resource path="res://UI/quizzes/quiz-hangman/Quiz-Hangman.gd" type="Script" id=3]
+
+[node name="Quiz-Hangman" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="QuizArea" type="MarginContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuizArea"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="LeftSide" type="VBoxContainer" parent="QuizArea/HBoxContainer"]
+margin_right = 588.0
+margin_bottom = 620.0
+size_flags_horizontal = 3
+
+[node name="Explanation" type="RichTextLabel" parent="QuizArea/HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(588, 128)
+margin_right = 588.0
+margin_bottom = 128.0
+bbcode_enabled = true
+bbcode_text = "[center]Seleciona as letras que completam o nome da imagem[/center]"
+text = "Seleciona as letras que completam o nome da imagem"
+fit_content = false
+scroll_active = false
+
+theme_override_font_sizes/normal_font_size = 36
+[node name="Image" type="MarginContainer" parent="QuizArea/HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(588, 452)
+margin_top = 168.0
+margin_right = 588.0
+margin_bottom = 620.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="QuizArea/HBoxContainer/LeftSide/Image"]
+custom_minimum_size = Vector2(488, 352)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 538.0
+margin_bottom = 402.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RightSide" type="MarginContainer" parent="QuizArea/HBoxContainer"]
+margin_left = 592.0
+margin_right = 1180.0
+margin_bottom = 620.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuizArea/HBoxContainer/RightSide"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 538.0
+margin_bottom = 570.0
+
+[node name="Target" type="Label" parent="QuizArea/HBoxContainer/RightSide/VBoxContainer"]
+margin_right = 488.0
+margin_bottom = 63.0
+text = "________"
+align = 1
+
+[node name="Answers" type="GridContainer" parent="QuizArea/HBoxContainer/RightSide/VBoxContainer"]
+margin_top = 311.0
+margin_right = 488.0
+margin_bottom = 311.0
+size_flags_vertical = 6
+columns = 4
