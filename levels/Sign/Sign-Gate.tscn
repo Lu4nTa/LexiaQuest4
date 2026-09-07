@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource path="res://assets/Fonts/OpenDyslexic/OpenDyslexic-Regular.otf" type="FontFile" id=1]
+[ext_resource path="res://addons/adbox/DialogueBox.gd" type="Script" id=2]
+[ext_resource path="res://assets/Sprites/gate.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sound/sfxr.me/text.wav" type="AudioStream" id=4]
+[ext_resource path="res://levels/Sign/Sign.gd" type="Script" id=5]
+[ext_resource path="res://UI/TutorialSign/TutorialSign-Theme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/Sound/mixkit.co/mixkit-retro-game-notification-212.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Sound/mixkit.co/mixkit-animated-small-group-applause-523.wav" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+size = Vector2( 96, 96 )
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+size = Vector2( 96, 96 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="TutorialSign" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+input_pickable = false
+monitorable = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource( 3 )
+scale = Vector2( 0.23, 0.23 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MinimumPresentsBarrier" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinimumPresentsBarrier"]
+position = Vector2( 8, -16 )
+shape = SubResource( 3 )
+
+[node name="NextLevelUnlockedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="LevelEndSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -3.0
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 4
+
+[node name="Canvas" type="PanelContainer" parent="UI"]
+margin_left = -184.0
+margin_top = -152.0
+margin_right = 184.0
+margin_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt" type="PanelContainer" parent="UI/Canvas"]
+custom_minimum_size = Vector2( 368, 43 )
+margin_top = 85.0
+margin_right = 368.0
+margin_bottom = 128.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Canvas/Prompt"]
+custom_minimum_size = Vector2(354, 29)
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 361.0
+margin_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[center]Clica-me para leres![/center]"
+text = "Clica-me para leres!"
+fit_content = false
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="PanelContainer" parent="UI/Canvas"]
+margin_top = 49.0
+margin_right = 368.0
+margin_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_minimum_size = Vector2( 368, 29 )
+mouse_default_cursor_shape = 2
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox" type="NinePatchRect" parent="UI/Canvas/Dialogue"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 361.0
+margin_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+message_sound = ExtResource( 4 )
+font = ExtResource( 1 )
+characterRevealDelay = 0.05
+margin_top_bottom = 0
+margin_left_right = 0
+
+[connection signal="body_entered" from="Area2D" to="." method="_onPlayerEnteredSignArea"]
+[connection signal="body_exited" from="Area2D" to="." method="_onPlayerExitedSignArea"]
+[connection signal="gui_input" from="UI/Canvas/Prompt" to="." method="_onPlayerStartedReading"]
+[connection signal="gui_input" from="UI/Canvas/Dialogue" to="UI/Canvas/Dialogue/DialogueBox" method="_on_Dialogue_gui_input"]
+[connection signal="dialogue_exit" from="UI/Canvas/Dialogue/DialogueBox" to="." method="_on_DialogueBox_dialogue_exit"]

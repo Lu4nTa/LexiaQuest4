@@ -1,0 +1,208 @@
+[gd_scene format=4 uid="uid://b5bdgi4wcq21a"]
+
+[ext_resource type="TileSet" uid="uid://deq16g0ge3aj2" path="res://assets/TileSets/Foreground.tres" id="1"]
+[ext_resource type="TileSet" uid="uid://dx4drlkfpvyfn" path="res://assets/TileSets/Details-StartScreen.tres" id="2"]
+[ext_resource type="SpriteFrames" path="res://player/PlayerAnimations.tres" id="8"]
+[ext_resource type="PackedScene" path="res://UI/start-screen/StartScreenUI.tscn" id="9"]
+[ext_resource type="Texture2D" uid="uid://c40l1itbbehnx" path="res://assets/Sprites/background.png" id="10"]
+[ext_resource type="Script" uid="uid://b6gdwd7yly07o" path="res://levels/StartScreen/StartScreen.gd" id="11"]
+[ext_resource type="AudioStream" uid="uid://bqyoc5l0mril1" path="res://assets/Sound/8bit 8pack/Quiet Village.wav" id="12"]
+[ext_resource type="TileSet" uid="uid://bgubgoigjv3hj" path="res://assets/TileSets/Background-StartScreen.tres" id="13"]
+
+[sub_resource type="Animation" id="15"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/StartScreenUI:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["idle"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite:offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="14"]
+resource_name = "StartScreenAnimation"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(600, -0.25, 0, 0, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/StartScreenUI:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(5, 6)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["walking", "idle"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 3, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite:offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-250, -0.25, 0, 0, 0, 0, -0.5, 0, 0.25, 0),
+"times": PackedFloat32Array(1.5, 3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jijil"]
+_data = {
+&"RESET": SubResource("15"),
+&"StartScreenAnimation": SubResource("14")
+}
+
+[node name="StartScreen" type="Node2D" unique_id=1699004926]
+script = ExtResource("11")
+
+[node name="Background" type="TileMap" parent="." unique_id=1480706624]
+tile_set = ExtResource("13")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="Background" unique_id=556268507]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD4/wEAAQAAAAAAAAD6/wEAAAAAAAAAAQA=")
+tile_set = ExtResource("13")
+
+[node name="Foreground" type="TileMap" parent="." unique_id=1940152801]
+tile_set = ExtResource("1")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="Foreground" unique_id=1897070834]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD5//v/JwAAAAAAAAD5//z/KAAAAAAAAAD6//z/JwAAAAAAAAD5//3/KAAAAAAAAAD6//3/AAAAAAAABQD5//7/KAAAAAAAAAD6//7/KAAAAAAAAAD7//7/JwAAAAAAAAD5////KAAAAAAAAAD6////KAAAAAAAAAD7////KAAAAAAAAAD8////JwAAAAAAAAD5/wAAKAAAAAAAAAD6/wAAKAAAAAAAAAD7/wAAKAAAAAAAAAD8/wAAJwAAAAAABQD5/wIAKAAAAAAAAAD6/wIAKAAAAAAAAAD7/wIAKAAAAAAAAAD8/wIAJwAAAAAAAAD5/wMAKAAAAAAAAAD6/wMAKAAAAAAAAAD7/wMAKAAAAAAAAAD8/wMAAAAAAAAABQD5/wQAKAAAAAAAAAD6/wQAKAAAAAAAAAD7/wQAKAAAAAAAAAD8/wQAKAAAAAAAAAD9/wQAJwAAAAAAAAD5/wUAKAAAAAAAAAD6/wUAKAAAAAAAAAD7/wUAKAAAAAAAAAD8/wUAKAAAAAAAAAD9/wUAKAAAAAAAAAD+/wUAJwAAAAAAAAD5/wYAKAAAAAAAAAD6/wYAKAAAAAAAAAD7/wYAKAAAAAAAAAD8/wYAKAAAAAAAAAD9/wYAKAAAAAAAAAD+/wYAKAAAAAAAAAD//wYAJwAAAAAAAAD5/wcAKAAAAAAAAAD6/wcAKAAAAAAAAAD7/wcAKAAAAAAAAAD8/wcAKAAAAAAAAAD9/wcAKAAAAAAAAAD+/wcAKAAAAAAAAAD//wcAAAAAAAAABQD5/wgAKAAAAAAAAAD6/wgAKAAAAAAAAAD7/wgAKAAAAAAAAAD8/wgAKAAAAAAAAAD9/wgAKAAAAAAAAAD+/wgAKAAAAAAAAAD//wgAKAAAAAAAAAAAAAgAJwAAAAAAAAD5/wkAKAAAAAAAAAD6/wkAKAAAAAAAAAD7/wkAKAAAAAAAAAD8/wkAKAAAAAAAAAD9/wkAKAAAAAAAAAD+/wkAKAAAAAAAAAD//wkAKAAAAAAAAAAAAAkAAAAAAAAABQD5/woAKAAAAAAAAAD6/woAKAAAAAAAAAD7/woAKAAAAAAAAAD8/woAKAAAAAAAAAD9/woAKAAAAAAAAAD+/woAKAAAAAAAAAD//woAKAAAAAAAAAAAAAoAAAAAAAAABQD5/wsAKAAAAAAAAAD6/wsAKAAAAAAAAAD7/wsAKAAAAAAAAAD8/wsAKAAAAAAAAAD9/wsAKAAAAAAAAAD+/wsAKAAAAAAAAAD//wsAKAAAAAAAAAAAAAsAKAAAAAAAAAABAAsAJwAAAAAAAAD5/wwAKAAAAAAAAAD6/wwAKAAAAAAAAAD7/wwAKAAAAAAAAAD8/wwAKAAAAAAAAAD9/wwAKAAAAAAAAAD+/wwAKAAAAAAAAAD//wwAKAAAAAAAAAAAAAwAKAAAAAAAAAABAAwAAAAAAAAABQD5/w0AKAAAAAAAAAD6/w0AKAAAAAAAAAD7/w0AKAAAAAAAAAD8/w0AKAAAAAAAAAD9/w0AKAAAAAAAAAD+/w0AKAAAAAAAAAD//w0AKAAAAAAAAAAAAA0AKAAAAAAAAAABAA0AAAAAAAAABQA=")
+tile_set = ExtResource("1")
+
+[node name="Details" type="TileMap" parent="." unique_id=1412834187]
+tile_set = ExtResource("2")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="Details" unique_id=1672248304]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD5/wMAMAAAAAAAAAD6/wMAMAABAAAAAAD7/wMAMAABAAAAAAD8/wMAMAABAAAAAAD9/wMAMAABAAAAAAD+/wMAMAABAAAAAAD//wMAMAABAAAAAAAAAAMAMAABAAAAAAABAAMAMAABAAAAAAACAAMAMAABAAAAAAADAAMAMAABAAAAAAAEAAMAMAABAAAAAAAFAAMAMAABAAAAAAAGAAMAMAABAAAAAAAHAAMAMAABAAAAAAAIAAMAMAABAAAAAAAJAAMAMAABAAAAAAAKAAMAMAABAAAAAAALAAMAMAABAAAAAAAMAAMAMAABAAAAAAANAAMAMAABAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=951998960]
+zoom = Vector2(0.7, 0.7)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1993846828]
+position = Vector2(-232, 112)
+sprite_frames = ExtResource("8")
+animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=910539334]
+
+[node name="StartScreenUI" parent="CanvasLayer" unique_id=404871579 instance=ExtResource("9")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkyLayer" type="CanvasLayer" parent="." unique_id=763484186]
+layer = -10
+
+[node name="Sky" type="TextureRect" parent="SkyLayer" unique_id=1842725381]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("10")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=854498997]
+libraries/ = SubResource("AnimationLibrary_jijil")
+autoplay = &"StartScreenAnimation"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1631875393]
+stream = ExtResource("12")
+volume_db = -12.0
+autoplay = true
+
+[connection signal="exitGame" from="CanvasLayer/StartScreenUI" to="." method="_on_StartScreenUI_exitGame"]
+[connection signal="startGame" from="CanvasLayer/StartScreenUI" to="." method="_on_StartScreenUI_startGame"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
