@@ -38,11 +38,11 @@ The game combines exploration, platforming and English language quizzes, applyin
 
 ##  Capturas de ecrã | Screenshots
 
-![Gameplay](gameplay.png)
+![Gameplay](gameplay)
 
-![Quiz](quiz.png)
+![Quiz](quiz)
 
-![Map](map.png)
+![Map](map)
 
 ---
 
