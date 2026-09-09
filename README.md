@@ -62,7 +62,9 @@ A versão executável do jogo está disponível na secção Releases deste repos
 Para computador: Descarregue o ficheiro .exe, descompacte e jogue!
 Para telemóvel (Android): Descarregue o ficheiro .apk, instale no seu dispositivo (permita a instalação de fontes desconhecidas se o sistema solicitar) e jogue com os controles táteis!
 
-The executable version of the game is available in the Releases section of this repository.For PC: Download the .exe file, extract and play!For Mobile (Android): Download the .apk file, install it on your device (allow installation from unknown sources if prompted by the system) and play using the touchscreen controls!
+The executable version of the game is available in the Releases section of this repository.
+For PC: Download the .exe file, extract and play!
+For Mobile (Android): Download the .apk file, install it on your device (allow installation from unknown sources if prompted by the system) and play using the touchscreen controls!
 ---
 
 ##  Autor | Author
