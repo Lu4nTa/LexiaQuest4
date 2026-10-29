@@ -4,7 +4,7 @@
 
 👉 [Clica aqui para descarregar o projeto completo no OneDrive](https://1drv.ms/u/c/d18df936a30106fd/IQABOEVYCZlUTYJiiCO--MWeAeEhD6zO8f3DqzY94ut2xgQ?e=6qdZNy)
 
-[Versão Andriod do projeto](https://1drv.ms/u/c/d18df936a30106fd/IQAskYYRQ3sfSIYveGO6pCghATbBIUj8XfvqUlx7U27plNE?e=lJcGHo)
+👉 [Versão Andriod do projeto](https://1drv.ms/u/c/d18df936a30106fd/IQAskYYRQ3sfSIYveGO6pCghATbBIUj8XfvqUlx7U27plNE?e=lJcGHo)
 
 ---
 
@@ -12,7 +12,7 @@
 
 👉 [Click here to download the complete project from OneDrive](https://1drv.ms/u/c/d18df936a30106fd/IQABOEVYCZlUTYJiiCO--MWeAeEhD6zO8f3DqzY94ut2xgQ?e=6qdZNy)
 
-[Android version of the project](https://1drv.ms/u/c/d18df936a30106fd/IQAskYYRQ3sfSIYveGO6pCghATbBIUj8XfvqUlx7U27plNE?e=TD3geG)
+👉 [Android version of the project](https://1drv.ms/u/c/d18df936a30106fd/IQAskYYRQ3sfSIYveGO6pCghATbBIUj8XfvqUlx7U27plNE?e=TD3geG)
 
 # LexiaQuest
 
